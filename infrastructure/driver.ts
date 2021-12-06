@@ -4,16 +4,21 @@ const baseDomain = "https://reqres.in";
 const baseURL = `${baseDomain}/api`;
 const client = axios.create({ baseURL });
 
-export class ApiClient {
+type Hoge = {
+  hoge: string;
+  fuga: string;
+  piyo: string;
+};
+export class driver {
   baseurl;
 
   constructor() {
     this.baseurl = baseURL;
   }
 
-  get<T>(resouce: string, params) {
+  get(resouce: string, params) {
     const url = `${this.baseurl}/${resouce}`;
-    return client.get<T>(url, params);
+    return client.get<Hoge>(url, params);
   }
 
   post<T>(resouce: string, req) {
