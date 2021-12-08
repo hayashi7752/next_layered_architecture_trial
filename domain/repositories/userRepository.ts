@@ -8,12 +8,11 @@ export class userRepository {
   constructor(api: driver) {
     this._driver = api;
   }
+
   signin(email, password): Promise<any> {
     return this._driver
       .get("/signin", { email, password })
-      .then(() => {
-        // 成功処理
-      })
+      .then(() => {})
       .catch((e) => {
         console.error(e);
       });
